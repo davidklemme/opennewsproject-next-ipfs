@@ -1,6 +1,7 @@
 import React from 'react';
 import MainNewsPage from '../components/news/MainNewsPage';
-import { getBBCGlobal } from '../data/newsfeeds/latin/bbcGlobal';
+import { getBBCGlobal } from '../data/newsfeeds/en/bbcGlobal';
+import { getMeduza } from '../data/newsfeeds/en/meduza';
 
 export default function Home({ newsData }) {
     const content = [
@@ -24,9 +25,14 @@ export default function Home({ newsData }) {
         </div>
     );
 }
+
 export async function getStaticProps(context) {
-    const newsData = await getBBCGlobal();
+    //TODO insert global way to fetch data sources dynamically
+    const bbcData = await getBBCGlobal();
+    const meduzaData = await getMeduza();
+    const newsData = [...bbcData, ...meduzaData];
     return {
         props: { newsData },
+        revalidate: 3600,
     };
 }

@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import { ListItem } from '@mui/material';
 import NewsItem from './NewsItem';
 
-const MainNewsPage = ({ content }) => {
+const MainNewsPage = (newsData) => {
     return (
         <List
             sx={{
@@ -15,10 +15,10 @@ const MainNewsPage = ({ content }) => {
                 justifyItems: 'center',
             }}
         >
-            {content.map((it) => {
+            {newsData.content.map((it) => {
                 return (
                     <ListItem key={it.id} sx={{ display: 'flex', justifyContent: 'center', width: '600px' }}>
-                        <NewsItem id={it.id} headline={it.headline} summary={it.summary} />
+                        <NewsItem id={it.id} headline={it.headline} summary={it.summary} source={it.source} />
                     </ListItem>
                 );
             })}

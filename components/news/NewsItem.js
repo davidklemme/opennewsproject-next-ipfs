@@ -6,8 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const NewsItem = ({ id, headline, summary, date, pic }) => {
-    console.log(pic);
+const NewsItem = ({ id, headline, summary, date, pic, source }) => {
     return (
         <Card>
             <CardMedia
@@ -19,6 +18,9 @@ const NewsItem = ({ id, headline, summary, date, pic }) => {
             <CardContent>
                 <Typography gutterBottom variant="h3" component="div">
                     {headline}
+                </Typography>
+                <Typography variant="body2" color="gray">
+                    {source}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
                     {summary}
