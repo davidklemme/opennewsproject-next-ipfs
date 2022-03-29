@@ -27,5 +27,33 @@ const feeds = [
             },
         },
     },
+    {
+        name: 'rfe',
+        data: {
+            url: 'https://www.rferl.org/api/z$qimetkiy',
+            dataMap: {
+                id: 'guid',
+                pic: 'null',
+                headline: 'title',
+                summary: 'content',
+                date: 'pubDate',
+                attribution: 'RFE/RL',
+            },
+        },
+    },
+    {
+        name: 'DW',
+        data: {
+            url: 'https://rss.dw.com/rdf/rss-en-all',
+            dataMap: {
+                id: 'link',
+                pic: 'null',
+                headline: 'title',
+                summary: 'content',
+                date: 'date',
+                attribution: 'DW',
+            },
+        },
+    },
 ];
 export default feeds;

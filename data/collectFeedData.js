@@ -11,7 +11,6 @@ const getKeyValueFromJSONObject = (obj, searchItem) => {
 
 const orderFeed = (feed) => {
     const ordered = feed.sort(function (a, b) {
-        console.log(new Date(a.date) - new Date(b.date));
         return new Date(b.date) - new Date(a.date);
     });
     return ordered;
@@ -35,7 +34,6 @@ const getFeed = async (source) => {
 const getAllFeedData = async () => {
     const data = feeds.map(async (element) => {
         const feed = await getFeed(element.data);
-
         return feed;
     });
     return Promise.all(data);
