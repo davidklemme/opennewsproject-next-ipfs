@@ -8,6 +8,14 @@ const getKeyValueFromJSONObject = (obj, searchItem) => {
         }
     }
 };
+
+const orderFeed = (feed) => {
+    const ordered = feed.sort(function (a, b) {
+        console.log(new Date(a.date) - new Date(b.date));
+        return new Date(b.date) - new Date(a.date);
+    });
+    return ordered;
+};
 const getFeed = async (source) => {
     const parser = new Parser();
     let feed = await parser.parseURL(source.url);
@@ -24,10 +32,16 @@ const getFeed = async (source) => {
     return result;
 };
 
-export const collectFeedData = async () => {
+const getAllFeedData = async () => {
     const data = feeds.map(async (element) => {
-        const feed = (await getFeed(element.data)).flat(2);
+        const feed = await getFeed(element.data);
+
         return feed;
     });
     return Promise.all(data);
+};
+export const collectFeedData = async () => {
+    const flatFeeds = (await getAllFeedData()).flat(2);
+    const orderedFeedByDate = orderFeed(flatFeeds);
+    return orderedFeedByDate;
 };

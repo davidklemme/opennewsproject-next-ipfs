@@ -19,9 +19,14 @@ const NewsItem = ({ id, headline, summary, date, pic, attribution }) => {
                 <Typography gutterBottom variant="h3" component="div">
                     {headline}
                 </Typography>
-                <Typography variant="body2" color="gray">
-                    {attribution}
-                </Typography>
+                <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '5px' }}>
+                    <Typography variant="body2" color="gray">
+                        {attribution}
+                    </Typography>
+                    <Typography variant="body2" color="lightgray">
+                        {date}
+                    </Typography>
+                </div>
                 <Typography variant="body1" color="text.secondary">
                     {summary}
                 </Typography>
