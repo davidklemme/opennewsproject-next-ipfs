@@ -23,8 +23,8 @@ const getFeed = async (source) => {
             id: getKeyValueFromJSONObject(it, source.dataMap.id),
             pic: getKeyValueFromJSONObject(it, source.dataMap.pic) || null,
             headline: getKeyValueFromJSONObject(it, source.dataMap.headline),
-            summary: getKeyValueFromJSONObject(it, source.dataMap.summary),
-            date: getKeyValueFromJSONObject(it, source.dataMap.date),
+            summary: getKeyValueFromJSONObject(it, source.dataMap.summary) || null,
+            date: getKeyValueFromJSONObject(it, source.dataMap.date) || null,
             attribution: source.dataMap.attribution,
         };
     });
