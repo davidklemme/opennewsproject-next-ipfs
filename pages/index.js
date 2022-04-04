@@ -25,10 +25,10 @@ export default function Home({ newsData }) {
     );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
     const newsData = await collectFeedData();
     return {
         props: { newsData },
-        revalidate: 3600,
+        revalidate: 50,
     };
 }
