@@ -13,6 +13,11 @@ const Meta = ({ title, keywords, description }) => {
             <meta charSet="utf-8" />
             <link rel="icon" href="favicons/onpFavicon.png" />
             <title>{title}</title>
+            <script
+                data-goatcounter="https://opennewsproject.goatcounter.com/count"
+                async
+                src="//gc.zgo.at/count.js"
+            ></script>
         </Head>
     );
 };
