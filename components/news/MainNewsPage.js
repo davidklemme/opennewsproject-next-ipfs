@@ -24,6 +24,7 @@ const MainNewsPage = (newsData) => {
                             summary={it.summary}
                             attribution={it.attribution}
                             date={it.date}
+                            link={it.link}
                         />
                     </ListItem>
                 );
