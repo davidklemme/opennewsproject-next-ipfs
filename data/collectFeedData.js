@@ -26,6 +26,7 @@ const getFeed = async (source) => {
             summary: getKeyValueFromJSONObject(it, source.dataMap.summary) || null,
             date: getKeyValueFromJSONObject(it, source.dataMap.date) || null,
             attribution: source.dataMap.attribution,
+            link: getKeyValueFromJSONObject(it, source.dataMap.link),
         };
     });
     return result;
