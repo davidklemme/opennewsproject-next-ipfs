@@ -29,6 +29,6 @@ export async function getStaticProps() {
     const newsData = await collectFeedData();
     return {
         props: { newsData },
-        revalidate: 50,
+        revalidate: 500,
     };
 }
