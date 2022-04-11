@@ -1,5 +1,8 @@
 import Parser from 'rss-parser';
-import feeds from './newsfeeds/en/feeds';
+import feedsEn from './newsfeeds/en/feeds';
+import feedsDe from './newsfeeds/de/feeds';
+
+const feeds = [...feedsEn, ...feedsDe];
 
 const getKeyValueFromJSONObject = (obj, searchItem) => {
     for (const [key, value] of Object.entries(obj)) {
@@ -32,15 +35,17 @@ const getFeed = async (source) => {
     return result;
 };
 
-const getAllFeedData = async () => {
-    const data = feeds.map(async (element) => {
-        const feed = await getFeed(element.data);
-        return feed;
-    });
+const getAllFeedData = async (lang) => {
+    const data = feeds
+        .filter((el) => el.type === lang)
+        .map(async (element) => {
+            const feed = await getFeed(element.data);
+            return feed;
+        });
     return Promise.all(data);
 };
-export const collectFeedData = async () => {
-    const flatFeeds = (await getAllFeedData()).flat(2);
+export const collectFeedData = async (lang) => {
+    const flatFeeds = (await getAllFeedData(lang)).flat(2);
     const orderedFeedByDate = orderFeed(flatFeeds);
     return orderedFeedByDate;
 };

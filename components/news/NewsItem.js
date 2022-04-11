@@ -54,11 +54,9 @@ const NewsItem = ({ id, headline, summary, date, pic, attribution, link }) => {
             </CardContent>
             <CardMedia
                 component="img"
-                height="300px"
-                width="300px"
                 image={pic ? pic : 'https://picsum.photos/300/300'}
                 alt={headline}
-                sx={{ width: '300px' }}
+                sx={{ display: { xs: 'none', lg: 'block' }, width: '300px' }}
             />
         </Card>
     );

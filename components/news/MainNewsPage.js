@@ -17,7 +17,7 @@ const MainNewsPage = (newsData) => {
         >
             {newsData.content.map((it) => {
                 return (
-                    <ListItem key={it.id} sx={{ display: 'flex', justifyContent: 'center', width: '900px' }}>
+                    <ListItem key={it.id} sx={{ display: 'flex', justifyContent: 'center', maxWidth: '900px' }}>
                         <NewsItem
                             id={it.id}
                             headline={it.headline}

@@ -1,6 +1,7 @@
 const feeds = [
     {
         name: 'bbc',
+        type: 'en',
         data: {
             url: 'http://feeds.bbci.co.uk/news/rss.xml?edition=int',
             dataMap: {
@@ -16,6 +17,7 @@ const feeds = [
     },
     {
         name: 'meduza',
+        type: 'en',
         data: {
             url: 'https://meduza.io/rss/en/all',
             dataMap: {
@@ -31,6 +33,7 @@ const feeds = [
     },
     {
         name: 'rfe',
+        type: 'en',
         data: {
             url: 'https://www.rferl.org/api/z$qimetkiy',
             dataMap: {
@@ -46,6 +49,7 @@ const feeds = [
     },
     {
         name: 'DW',
+        type: 'en',
         data: {
             url: 'https://rss.dw.com/rdf/rss-en-all',
             dataMap: {
@@ -61,6 +65,7 @@ const feeds = [
     },
     {
         name: 'CNN',
+        type: 'en',
         data: {
             url: 'http://rss.cnn.com/rss/edition.rss',
             dataMap: {
