@@ -11,7 +11,7 @@ export default function Home({ newsData }) {
 }
 
 export async function getStaticProps() {
-    const newsData = await collectFeedData();
+    const newsData = await collectFeedData('en');
     return {
         props: { newsData },
         revalidate: 500,

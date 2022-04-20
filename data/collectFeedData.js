@@ -20,19 +20,23 @@ const orderFeed = (feed) => {
 };
 const getFeed = async (source) => {
     const parser = new Parser();
-    let feed = await parser.parseURL(source.url);
-    const result = feed.items.map((it) => {
-        return {
-            id: getKeyValueFromJSONObject(it, source.dataMap.id),
-            pic: getKeyValueFromJSONObject(it, source.dataMap.pic) || null,
-            headline: getKeyValueFromJSONObject(it, source.dataMap.headline),
-            summary: getKeyValueFromJSONObject(it, source.dataMap.summary) || null,
-            date: getKeyValueFromJSONObject(it, source.dataMap.date) || null,
-            attribution: source.dataMap.attribution,
-            link: getKeyValueFromJSONObject(it, source.dataMap.link),
-        };
-    });
-    return result;
+    try {
+        let feed = await parser.parseURL(source.url);
+        const result = feed.items.map((it) => {
+            return {
+                id: getKeyValueFromJSONObject(it, source.dataMap.id),
+                pic: getKeyValueFromJSONObject(it, source.dataMap.pic) || null,
+                headline: getKeyValueFromJSONObject(it, source.dataMap.headline),
+                summary: getKeyValueFromJSONObject(it, source.dataMap.summary) || null,
+                date: getKeyValueFromJSONObject(it, source.dataMap.date) || null,
+                attribution: source.dataMap.attribution,
+                link: getKeyValueFromJSONObject(it, source.dataMap.link),
+            };
+        });
+        return result;
+    } catch (e) {
+        console.error(e);
+    }
 };
 
 const getAllFeedData = async (lang) => {
