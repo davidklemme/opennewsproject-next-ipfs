@@ -15,7 +15,7 @@ const MainNewsPage = (newsData) => {
                 justifyItems: 'center',
             }}
         >
-            {newsData.content.map((it) => {
+            {newsData?.content?.map((it) => {
                 return (
                     <ListItem key={it.id} sx={{ display: 'flex', justifyContent: 'center', maxWidth: '900px' }}>
                         <NewsItem
